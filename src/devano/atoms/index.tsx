@@ -26,7 +26,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator,
 } from "./feedback";
-import { CheckboxInput, PasswordInput, TextInput } from "./inputs";
+import { CheckboxInput, PasswordInput, TextInput, TextArea } from "./inputs";
 import { Card, Heading, Modal, Page, PageInner, Stack } from "./layout";
 export {
 	Show,
@@ -54,6 +54,7 @@ export {
 	CheckboxInput,
 	PasswordInput,
 	TextInput,
+	TextArea,
 	Card,
 	Heading,
 	Modal,
