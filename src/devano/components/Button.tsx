@@ -21,7 +21,7 @@ interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
  * @param props.pill Optional, boolean. Makes the button fully rounded.
  * @param props.class Optional, goes into a cn function so you can override default styles as needed.
  */
-export function Button(props: ButtonProps) {
+export default function Button(props: ButtonProps) {
   const [l, rest] = splitProps(props, [
     "variant",
     "size",
@@ -34,14 +34,14 @@ export function Button(props: ButtonProps) {
   const size = l?.size || "md";
   const isPill = l?.pill || false;
   let className = cn([
-    "flex flex-row items-center justify-start select-none hover:cursor-pointer focus:outline-neutral-500",
+    "flex flex-row transition-all items-center justify-start select-none hover:cursor-pointer focus:outline-neutral-500",
 
     {
       "gap-2 px-2 py-0.5 rounded-md border-2 focus:outline-2 text-sm":
         size == "sm",
-      "gap-2 px-4 py-1 font-semibold rounded-md border-2 focus:outline-2 text-md":
+      "gap-2 px-4 py-1 rounded-md border-2 focus:outline-2 text-md":
         size == "md",
-      "gap-2 px-6 py-2 font-semibold rounded-md border-2.5 focus:outline-2.5 text-lg":
+      "gap-2 px-6 py-2 rounded-md border-2.5 focus:outline-2.5 text-lg":
         size == "lg",
       "justify-center px-2 aspect-1/1 rounded-md border-2 focus:outline-2 text-sm":
         size == "icon-sm",
@@ -54,16 +54,18 @@ export function Button(props: ButtonProps) {
       "rounded-full": isPill,
     },
     {
-      "bg-neutral-800 text-neutral-100 hover:opacity-85": variant == "primary",
-      "bg-neutral-600 text-neutral-100 hover:opacity-85":
+      "bg-neutral-800 border-neutral-800 text-neutral-100 hover:opacity-85":
+        variant == "primary",
+      "bg-neutral-600 border-neutral-600 text-neutral-100 hover:opacity-85":
         variant == "secondary",
-      "bg-neutral-600/50 text-neutral-800 border-neutral-800 hover:opacity-85":
+      "bg-neutral-600/10 text-neutral-800/90 border-neutral-800/50 hover:opacity-85":
         variant == "outline",
-      "text-neutral-800 hover:bg-neutral-600/50 focus:bg-neutral-600/50":
+      "text-neutral-800 border-transparent bg-transparent hover:bg-neutral-600/50 focus:bg-neutral-600/50":
         variant == "ghost",
-      "bg-red-400 text-neutral-200 focus:outline-red-300":
+      "bg-red-400 border-red-400 text-neutral-200 focus:outline-red-300":
         variant == "destructive",
-      "hover:underline gap-2 border-0": variant == "link",
+      "hover:underline focus:underline gap-2 border-0 underline-offset-4":
+        variant == "link",
     },
     l?.class,
     { "opacity-50 cursor-not-allowed": l?.disabled },
@@ -75,3 +77,5 @@ export function Button(props: ButtonProps) {
     </button>
   );
 }
+
+const meow = <button class="transition-colors">Meow</button>;

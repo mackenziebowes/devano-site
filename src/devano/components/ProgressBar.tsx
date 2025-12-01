@@ -1,33 +1,19 @@
 import { JSX, splitProps } from "solid-js";
 import { cn } from "~/devano/utils";
+
 interface ProgressBarProps extends JSX.HTMLAttributes<HTMLDivElement> {
   length: number;
   index: number;
-  direction?: "horizontal" | "vertical";
 }
 
 export function ProgressBar(props: ProgressBarProps) {
-  const [l, rest] = splitProps(props, [
-    "length",
-    "index",
-    "direction",
-    "class",
-  ]);
-  let dir = l?.direction ?? "horizontal";
+  const [l, rest] = splitProps(props, ["length", "index", "class"]);
   let containerCn = cn([
-    "flex align-center items-center justify-center select-none w-full",
-    {
-      "flex-col": dir == "vertical",
-    },
-  ]);
-  let decoratorCn = cn([
-    {
-      "w-3": dir == "vertical",
-      "h-3": dir == "horizontal",
-    },
+    "flex align-center items-center justify-center select-none w-full overflow-clip",
+    l?.class,
   ]);
   let filledCn = cn([
-    decoratorCn,
+    "h-3",
     l.class?.includes("text-")
       ? l.class
           .split(" ")
@@ -38,7 +24,7 @@ export function ProgressBar(props: ProgressBarProps) {
       : "bg-green-500",
   ]);
   let emptyCn = cn([
-    decoratorCn,
+    "h-3",
     l.class?.includes("bg-")
       ? l.class
           .split(" ")

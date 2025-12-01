@@ -4,21 +4,18 @@ import { cn } from "~/devano/utils";
 interface PageInnerProps extends JSX.HTMLAttributes<HTMLDivElement> {}
 
 export function PageInner(props: PageInnerProps) {
-	const [l, rest] = splitProps(props, ["class"]);
+  const [l, rest] = splitProps(props, ["class"]);
 
-	const innerCn = cn([
-		"flex flex-col h-screen w-screen items-center justify-between",
-		l?.class,
-	]);
+  const innerCn = cn([
+    "flex flex-col h-screen w-screen items-center justify-between",
+    l?.class,
+  ]);
 
-	return (
-		<div
-			class={innerCn}
-			{...rest}
-		>
-			<div class="flex-none w-full px-[24px] py-[12px]">{/* <TopNav /> */}</div>
-			<div class="flex-1 overflow-y-scroll pb-[24px]">{props.children}</div>
-			<div class="flex items-center justify-center flex-none w-full py-[12px]"></div>
-		</div>
-	);
+  return (
+    <div class={innerCn} {...rest}>
+      <div class="flex-none w-full px-6 py-3">{/* <TopNav /> */}</div>
+      <div class="flex-1 overflow-y-scroll pb-6">{props.children}</div>
+      <div class="flex items-center justify-center flex-none w-full py-3"></div>
+    </div>
+  );
 }

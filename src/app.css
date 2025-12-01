@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
-body {
-	background: var(--surface-700);
-	color: var(--marking-200);
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.shiki-code-block pre code {
+    counter-reset: step;
+    counter-increment: step 0;
+}
+
+.shiki-code-block pre code .line {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.shiki-code-block pre code .line::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1rem;
+    content: counter(step);
+    counter-increment: step;
+    padding-right: 15px;
+    opacity: 0.65;
 }

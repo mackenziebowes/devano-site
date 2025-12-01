@@ -1,6 +1,6 @@
 import { JSX } from "solid-js";
 import { ScratchProvider } from "./individual/Scratch";
-import { AlertProvider } from "~/devano/components";
+import { AlertProvider } from "~/devano/molecules";
 interface ProviderProps extends JSX.HTMLAttributes<HTMLDivElement> {}
 
 export default function Contexts(props: ProviderProps) {
