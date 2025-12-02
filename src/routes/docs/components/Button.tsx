@@ -49,7 +49,7 @@ export default function ButtonPage() {
         <Heading as="h4">Variants</Heading>
         <div class="flex flex-col gap-0 rounded-md overflow-clip">
           <ComponentDisplayArea>
-            <div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto">
+            <div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
               <Button>Default</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="outline">Outline</Button>

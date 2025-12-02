@@ -60,12 +60,13 @@ export function Anchor(props: AnchorProps) {
       "rounded-full": isPill,
     },
     {
-      "bg-neutral-800 text-neutral-100 hover:opacity-85": variant == "primary",
-      "bg-neutral-600 text-neutral-100 hover:opacity-85":
+      "bg-neutral-800 text-neutral-100 dark:bg-neutral-200 dark:text-neutral-800 hover:opacity-85":
+        variant == "primary",
+      "bg-neutral-600 text-neutral-100 dark:bg-neutral-300 dark:text-neutral-700 hover:opacity-85":
         variant == "secondary",
-      "bg-neutral-600/50 text-neutral-800 border-neutral-800 hover:opacity-85":
+      "bg-neutral-600/50 dark:bg-neutral-400/50 text-neutral-800 dark:text-neutral-200 border-neutral-800 hover:opacity-85":
         variant == "outline",
-      "text-neutral-800 hover:bg-neutral-600/50 bg-transparent border-transparent focus:bg-neutral-600/50":
+      "text-neutral-800 dark:text-neutral-300 hover:bg-neutral-600/50 dark:hover:bg-neutral-300/50 bg-transparent border-transparent focus:bg-neutral-600/50 dark:focus:bg-neutral-300/50":
         variant == "ghost",
       "bg-red-400 text-neutral-200 focus:outline-red-300":
         variant == "destructive",

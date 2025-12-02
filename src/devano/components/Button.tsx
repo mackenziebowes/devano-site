@@ -34,38 +34,37 @@ export default function Button(props: ButtonProps) {
   const size = l?.size || "md";
   const isPill = l?.pill || false;
   let className = cn([
-    "flex flex-row transition-all items-center justify-start select-none hover:cursor-pointer focus:outline-neutral-500",
+    "flex flex-row transition-all items-center justify-start select-none hover:cursor-pointer focus:outline-2 focus:outline-neutral-500",
 
     {
-      "gap-2 px-2 py-0.5 rounded-md border-2 focus:outline-2 text-sm":
+      "gap-2 px-2 py-0.5 rounded-md border-1 focus:outline-2 text-sm":
         size == "sm",
-      "gap-2 px-4 py-1 rounded-md border-2 focus:outline-2 text-md":
+      "gap-2 px-4 py-1 rounded-md border-1 focus:outline-2 text-md":
         size == "md",
-      "gap-2 px-6 py-2 rounded-md border-2.5 focus:outline-2.5 text-lg":
+      "gap-2 px-6 py-2 rounded-md border-1.5 focus:outline-2.5 text-lg":
         size == "lg",
-      "justify-center px-2 aspect-1/1 rounded-md border-2 focus:outline-2 text-sm":
+      "justify-center px-2 aspect-1/1 rounded-md border-1 focus:outline-2 text-sm":
         size == "icon-sm",
-      "justify-center px-4 aspect-1/1 rounded-md border-2 focus:outline-2 text-md":
+      "justify-center px-4 aspect-1/1 rounded-md border-1 focus:outline-2 text-md":
         size == "icon",
-      "justify-center px-4 aspect-1/1 rounded-md border-2.5 focus:outline-2.5 text-lg":
+      "justify-center px-4 aspect-1/1 rounded-md border-1.5 focus:outline-2.5 text-lg":
         size == "icon-lg",
     },
     {
       "rounded-full": isPill,
     },
     {
-      "bg-neutral-800 border-neutral-800 text-neutral-100 hover:opacity-85":
+      "bg-neutral-800 text-neutral-100 dark:bg-neutral-200 dark:text-neutral-800 hover:opacity-85":
         variant == "primary",
-      "bg-neutral-600 border-neutral-600 text-neutral-100 hover:opacity-85":
+      "bg-neutral-600 text-neutral-100 dark:bg-neutral-300 dark:text-neutral-700 hover:opacity-85":
         variant == "secondary",
-      "bg-neutral-600/10 text-neutral-800/90 border-neutral-800/50 hover:opacity-85":
+      "bg-neutral-600/20 dark:bg-neutral-400/20 text-neutral-800 dark:text-neutral-200 border-neutral-800 dark:border-neutral-400 hover:opacity-85":
         variant == "outline",
-      "text-neutral-800 border-transparent bg-transparent hover:bg-neutral-600/50 focus:bg-neutral-600/50":
+      "text-neutral-800 dark:text-neutral-300 hover:bg-neutral-600/50 dark:hover:bg-neutral-300/50 bg-transparent border-transparent focus:bg-neutral-600/50 dark:focus:bg-neutral-300/50":
         variant == "ghost",
-      "bg-red-400 border-red-400 text-neutral-200 focus:outline-red-300":
+      "bg-red-400 dark:bg-red-700/50 text-neutral-200 focus:outline-red-300 dark:focus:outline-red-700/85 dark:border-red-700/50":
         variant == "destructive",
-      "hover:underline focus:underline gap-2 border-0 underline-offset-4":
-        variant == "link",
+      "hover:underline gap-2 border-0": variant == "link",
     },
     l?.class,
     { "opacity-50 cursor-not-allowed": l?.disabled },
