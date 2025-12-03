@@ -76,5 +76,3 @@ export default function Button(props: ButtonProps) {
     </button>
   );
 }
-
-const meow = <button class="transition-colors">Meow</button>;
