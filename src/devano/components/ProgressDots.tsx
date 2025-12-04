@@ -6,7 +6,7 @@ interface ProgressDotsProps extends JSX.HTMLAttributes<HTMLDivElement> {
   direction?: "horizontal" | "vertical";
 }
 
-export function ProgressDots(props: ProgressDotsProps) {
+export const ProgressDots = (props: ProgressDotsProps) => {
   const [l, rest] = splitProps(props, [
     "length",
     "index",
@@ -61,4 +61,4 @@ export function ProgressDots(props: ProgressDotsProps) {
       </For>
     </div>
   );
-}
+};

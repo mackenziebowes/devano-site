@@ -74,7 +74,7 @@ const foldObjects = (a: Record<string, string>, b: Record<string, string>) => {
   return { ...a, ...b };
 };
 
-export default function Grid(props: GridProps) {
+export const Grid = (props: GridProps) => {
   const [l, rest] = splitProps(props, [
     "children",
     "class",
@@ -133,4 +133,4 @@ export default function Grid(props: GridProps) {
       {l.children}
     </div>
   );
-}
+};

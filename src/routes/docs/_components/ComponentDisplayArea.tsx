@@ -6,7 +6,7 @@ export default function ComponentDisplayArea(
   return (
     <Grid
       count={1}
-      class="bg-neutral-200 dark:bg-neutral-800 place-items-center"
+      class="bg-background text-foreground border-2 border-border place-items-center"
     >
       <Tile yd="full" xd="full">
         {props.children}

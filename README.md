@@ -10,3 +10,7 @@ See [`/src/README.md`](https://github.com/mackenziebowes/deko-client-solid/blob/
 
 Straight up, I couldn't figure out how to store components in the NPM store and have them still be reactive. F it, I say, we'll just transfer them over git clone.
 Feel free to edit them inline to meet your needs.
+
+## Figlet Ascii Comments
+
+https://patorjk.com/software/taag/#p=display&f=Rectangles&t=Link&x=cppComment&v=4&h=4&w=40&we=true

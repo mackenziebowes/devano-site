@@ -1,7 +1,6 @@
 import DocPage from "./Page";
 import ComponentArticle from "./ComponentArticle";
 import ComponentDisplayArea from "./ComponentDisplayArea";
-import CodeBlock from "./CodeBlock";
 import { JSX, For, Show, children } from "solid-js";
 import z from "zod";
 

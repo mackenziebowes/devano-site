@@ -6,7 +6,7 @@ interface ProgressBarProps extends JSX.HTMLAttributes<HTMLDivElement> {
   index: number;
 }
 
-export function ProgressBar(props: ProgressBarProps) {
+export const ProgressBar = (props: ProgressBarProps) => {
   const [l, rest] = splitProps(props, ["length", "index", "class"]);
   let containerCn = cn([
     "flex align-center items-center justify-center select-none w-full overflow-clip",
@@ -46,4 +46,4 @@ export function ProgressBar(props: ProgressBarProps) {
       />
     </div>
   );
-}
+};

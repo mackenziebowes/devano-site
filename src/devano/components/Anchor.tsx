@@ -26,7 +26,7 @@ interface AnchorProps extends JSX.AnchorHTMLAttributes<HTMLAnchorElement> {
  * @param props.pill Optional, boolean. Makes the button fully rounded.
  * @param props.class Optional, goes into a cn function so you can override default styles as needed.
  */
-export function Anchor(props: AnchorProps) {
+export const Anchor = (props: AnchorProps) => {
   const [l, rest] = splitProps(props, [
     "variant",
     "size",
@@ -41,7 +41,7 @@ export function Anchor(props: AnchorProps) {
   const size = l?.size || "md";
   const isPill = l?.pill || false;
   let className = cn([
-    "flex flex-row items-center justify-start select-none hover:cursor-pointer focus:outline-neutral-500",
+    "flex flex-row items-center justify-start select-none hover:cursor-pointer focus:outline-ring",
     {
       "gap-2 px-2 py-0.5 rounded-md border-2 focus:outline-2 text-sm":
         size == "sm",
@@ -60,15 +60,15 @@ export function Anchor(props: AnchorProps) {
       "rounded-full": isPill,
     },
     {
-      "bg-neutral-800 text-neutral-100 dark:bg-neutral-200 dark:text-neutral-800 hover:opacity-85":
+      "bg-primary text-primary-foreground border-primary hover:opacity-85":
         variant == "primary",
-      "bg-neutral-600 text-neutral-100 dark:bg-neutral-300 dark:text-neutral-700 hover:opacity-85":
+      "bg-secondary text-secondary-foreground border-secondary hover:opacity-85":
         variant == "secondary",
-      "bg-neutral-600/50 dark:bg-neutral-400/50 text-neutral-800 dark:text-neutral-200 border-neutral-800 hover:opacity-85":
+      "bg-primary/10 text-foreground border-border hover:opacity-85":
         variant == "outline",
-      "text-neutral-800 dark:text-neutral-300 hover:bg-neutral-600/50 dark:hover:bg-neutral-300/50 bg-transparent border-transparent focus:bg-neutral-600/50 dark:focus:bg-neutral-300/50":
+      "text-foreground hover:bg-primary/20 bg-transparent border-transparent focus:bg-primary/20":
         variant == "ghost",
-      "bg-red-400 text-neutral-200 focus:outline-red-300":
+      "bg-destructive text-foreground focus:outline-red-300":
         variant == "destructive",
       "hover:underline gap-2 border-0": variant == "link",
     },
@@ -94,4 +94,4 @@ export function Anchor(props: AnchorProps) {
       {l?.children ?? ""}
     </A>
   );
-}
+};

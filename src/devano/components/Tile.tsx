@@ -67,7 +67,7 @@ const calculateGridRow = (args: TileSchema): Record<string, string> => {
   return { "grid-row": `1 / -1` };
 };
 
-export default function Tile(props: TileProps) {
+export const Tile = (props: TileProps) => {
   const [l, rest] = splitProps(props, [
     "style",
     "x1",
@@ -91,4 +91,4 @@ export default function Tile(props: TileProps) {
       {l.children}
     </div>
   );
-}
+};

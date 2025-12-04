@@ -1,4 +1,4 @@
-import { Button, Page } from "~/devano/components";
+import { Page } from "~/devano/components";
 import { JSX } from "solid-js";
 import ComponentNav from "~/nav/components";
 
