@@ -1,66 +1,104 @@
 import { Heading } from "~/devano/atoms";
 import { Button } from "~/devano/components";
 import Page from "../_components/Page";
-import ComponentDisplayArea from "../_components/ComponentDisplayArea";
+import WriteUp from "../_components/ComponentWriteUp";
 import CodeBlock from "../_components/CodeBlock";
-import ComponentArticle from "../_components/ComponentArticle";
 
-const DefaultDemo = `import { Button } from "~/devano/components";
+export default function ButtonPage() {
+	const AllVariant = {
+		jsx: <AllDemoComponent />,
+		codeBlock: <AllDemoCodeBlock />,
+		name: "Style Variants",
+		description: "All style variants of the Anchor component",
+	};
+
+	return (
+		<WriteUp
+			name={"Button"}
+			description={"Styled Buttons components"}
+			demoJSX={<DefaultDemo />}
+			demoCodeBlock={<DefaultDemoCode />}
+			variants={[AllVariant]}
+		/>
+	);
+}
+
+//
+//     ____      ___         _ _
+//    |    \ ___|  _|___ _ _| | |_
+//    |  |  | -_|  _| .'| | | |  _|
+//    |____/|___|_| |__,|___|_|_|
+//
+
+const DefaultDemoCodeInner = `import { Button } from "~/devano/components";
 
 export function ButtonDemo() {
   return (
+  <div class="py-24 w-fit place-self-center mx-auto">
     <Button>Hello!</Button>
+  </div>
   )
 };
 `;
 
-const SecondaryDemo = `import { Button } from "~/devano/components";
+const DefaultDemoCode = () => {
+	return (
+		<CodeBlock
+			code={DefaultDemoCodeInner}
+			lang="tsx"
+		/>
+	);
+};
 
-export function ButtonDemo() {
+const DefaultDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Button>Hello!</Button>
+		</div>
+	);
+};
+
+//
+//     _____ _ _
+//    |  _  | | |
+//    |     | | |
+//    |__|__|_|_|
+//
+
+const AllDemoCodeInner = `import { Button } from "~/devano/components";
+
+export function AllButtonsDemo() {
   return (
     <div class="py-24 flex flex-wrap gap-2 max-w-[80%]">
       <Button>Default</Button>
+      <Button variant="primary">Login</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>
-      <Button variant="link">Link</Button>
     </div>
   )
 };
 `;
 
-export default function ButtonPage() {
-  return (
-    <Page>
-      <ComponentArticle>
-        <Heading as="h3">Button</Heading>
-        <p>
-          A component that displays a button element with useful default styles.
-        </p>
-        <div class="flex flex-col gap-0 rounded-md overflow-clip">
-          <ComponentDisplayArea>
-            <div class="py-24 w-fit place-self-center mx-auto">
-              <Button>Hello!</Button>
-            </div>
-          </ComponentDisplayArea>
-          <CodeBlock code={DefaultDemo} lang="tsx" />
-        </div>
-        <Heading as="h4">Variants</Heading>
-        <div class="flex flex-col gap-0 rounded-md overflow-clip">
-          <ComponentDisplayArea>
-            <div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
-              <Button>Default</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-              <Button variant="destructive">Destructive</Button>
-              <Button variant="link">Link</Button>
-            </div>
-          </ComponentDisplayArea>
-          <CodeBlock code={SecondaryDemo} lang="tsx" />
-        </div>
-      </ComponentArticle>
-    </Page>
-  );
-}
+const AllDemoCodeBlock = () => {
+	return (
+		<CodeBlock
+			code={AllDemoCodeInner}
+			lang="tsx"
+		/>
+	);
+};
+
+const AllDemoComponent = () => {
+	return (
+		<div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
+			<Button>Default</Button>
+			<Button variant="secondary">Secondary</Button>
+			<Button variant="outline">Outline</Button>
+			<Button variant="ghost">Ghost</Button>
+			<Button variant="destructive">Destructive</Button>
+			<Button variant="link">Link</Button>
+		</div>
+	);
+};

@@ -3,46 +3,46 @@ import WriteUp from "../_components/ComponentWriteUp";
 import CodeBlock from "../_components/CodeBlock";
 
 export default function ButtonPage() {
-  const AllVariant = {
-    jsx: <AllDemoComponent />,
-    codeBlock: <AllDemoCodeBlock />,
-    name: "Style Variants",
-    description: "All style variants of the Anchor component",
-  };
+	const AllVariant = {
+		jsx: <AllDemoComponent />,
+		codeBlock: <AllDemoCodeBlock />,
+		name: "Style Variants",
+		description: "All style variants of the Anchor component",
+	};
 
-  const PrimaryVariant = {
-    jsx: <PrimaryDemo />,
-    codeBlock: <PrimaryCode />,
-    name: "Primary",
-    description:
-      "A button-like link, for use as a primary action routing to an internal page.",
-  };
+	const PrimaryVariant = {
+		jsx: <PrimaryDemo />,
+		codeBlock: <PrimaryCode />,
+		name: "Primary",
+		description:
+			"A button-like link, for use as a primary action routing to an internal page.",
+	};
 
-  const SecondaryVariant = {
-    jsx: <SecondaryDemo />,
-    codeBlock: <SecondaryCode />,
-    name: "Secondary",
-    description:
-      "A button-like link, for use as a secondary action routing to an internal page.",
-  };
+	const SecondaryVariant = {
+		jsx: <SecondaryDemo />,
+		codeBlock: <SecondaryCode />,
+		name: "Secondary",
+		description:
+			"A button-like link, for use as a secondary action routing to an internal page.",
+	};
 
-  const OutlineVariant = {
-    jsx: <OutlineDemo />,
-    codeBlock: <OutlineDemoCode />,
-    name: "Outline",
-    description:
-      "A button-like link, for use as a tertiary action routing to an internal page.",
-  };
+	const OutlineVariant = {
+		jsx: <OutlineDemo />,
+		codeBlock: <OutlineDemoCode />,
+		name: "Outline",
+		description:
+			"A button-like link, for use as a tertiary action routing to an internal page.",
+	};
 
-  return (
-    <WriteUp
-      name={"Anchor"}
-      description={"Styled Solid-Router native Anchor components"}
-      demoJSX={<DefaultDemo />}
-      demoCodeBlock={<DefaultDemoCode />}
-      variants={[AllVariant, PrimaryVariant, SecondaryVariant, OutlineVariant]}
-    />
-  );
+	return (
+		<WriteUp
+			name={"Anchor"}
+			description={"Styled Solid-Router native Anchor components"}
+			demoJSX={<DefaultDemo />}
+			demoCodeBlock={<DefaultDemoCode />}
+			variants={[AllVariant, PrimaryVariant, SecondaryVariant, OutlineVariant]}
+		/>
+	);
 }
 
 //
@@ -64,15 +64,20 @@ export function AnchorDemo() {
 `;
 
 const DefaultDemoCode = () => {
-  return <CodeBlock code={DefaultDemoCodeInner} lang="tsx" />;
+	return (
+		<CodeBlock
+			code={DefaultDemoCodeInner}
+			lang="tsx"
+		/>
+	);
 };
 
 const DefaultDemo = () => {
-  return (
-    <div class="py-24 w-fit place-self-center mx-auto">
-      <Anchor href="#">Hello!</Anchor>
-    </div>
-  );
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor href="#">Hello!</Anchor>
+		</div>
+	);
 };
 
 //
@@ -86,43 +91,63 @@ const AllDemoCodeInner = `import { Anchor } from "~/devano/components";
 
 export function AllAnchorsDemo() {
   return (
-    <div class="py-24 flex flex-wrap gap-2 max-w-[80%]">
-      <Anchor>Default</Anchor>
-      <Anchor variant="primary">Primary</Anchor>
-      <Anchor variant="secondary">Secondary</Anchor>
-      <Anchor variant="outline">Outline</Anchor>
-      <Anchor variant="ghost">Ghost</Anchor>
-      <Anchor variant="destructive">Destructive</Anchor>
+    <div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
+      <Anchor href="#">Default</Anchor>
+      <Anchor href="/login" variant="primary">Login</Anchor>
+      <Anchor href="#" variant="secondary">Secondary</Anchor>
+      <Anchor href="#" variant="outline">Outline</Anchor>
+      <Anchor href="#" variant="ghost">Ghost</Anchor>
+      <Anchor href="#" variant="destructive">Destructive</Anchor>
     </div>
   )
 };
 `;
 
 const AllDemoCodeBlock = () => {
-  return <CodeBlock code={AllDemoCodeInner} lang="tsx" />;
+	return (
+		<CodeBlock
+			code={AllDemoCodeInner}
+			lang="tsx"
+		/>
+	);
 };
 
 const AllDemoComponent = () => {
-  return (
-    <div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
-      <Anchor href="#">Default</Anchor>
-      <Anchor href="#" variant="primary">
-        Primary
-      </Anchor>
-      <Anchor href="#" variant="secondary">
-        Secondary
-      </Anchor>
-      <Anchor href="#" variant="outline">
-        Outline
-      </Anchor>
-      <Anchor href="#" variant="ghost">
-        Ghost
-      </Anchor>
-      <Anchor href="#" variant="destructive">
-        Destructive
-      </Anchor>
-    </div>
-  );
+	return (
+		<div class="py-24 flex flex-wrap gap-2 max-w-[80%] mx-auto text-sm">
+			<Anchor href="#">Default</Anchor>
+			<Anchor
+				href="#"
+				variant="primary"
+			>
+				Login
+			</Anchor>
+			<Anchor
+				href="#"
+				variant="secondary"
+			>
+				Secondary
+			</Anchor>
+			<Anchor
+				href="#"
+				variant="outline"
+			>
+				Outline
+			</Anchor>
+			<Anchor
+				href="#"
+				variant="ghost"
+			>
+				Ghost
+			</Anchor>
+			<Anchor
+				href="#"
+				variant="destructive"
+			>
+				Destructive
+			</Anchor>
+		</div>
+	);
 };
 
 //
@@ -133,13 +158,16 @@ const AllDemoComponent = () => {
 //                              |___|
 
 const PrimaryDemo = () => {
-  return (
-    <div class="py-24 w-fit place-self-center mx-auto">
-      <Anchor variant="primary" href="#">
-        Hello!
-      </Anchor>
-    </div>
-  );
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				variant="primary"
+				href="#"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
 };
 
 const PrimaryCodeInner = `import { Anchor } from "~/devano/components";
@@ -153,7 +181,12 @@ export function AnchorPrimaryDemo() {
 };`;
 
 const PrimaryCode = () => {
-  return <CodeBlock code={PrimaryCodeInner} lang="tsx" />;
+	return (
+		<CodeBlock
+			code={PrimaryCodeInner}
+			lang="tsx"
+		/>
+	);
 };
 
 //
@@ -164,13 +197,16 @@ const PrimaryCode = () => {
 //                                      |___|
 
 const SecondaryDemo = () => {
-  return (
-    <div class="py-24 w-fit place-self-center mx-auto">
-      <Anchor variant="secondary" href="#">
-        Hello!
-      </Anchor>
-    </div>
-  );
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				variant="secondary"
+				href="#"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
 };
 
 const SecondaryCodeInner = `import { Anchor } from "~/devano/components";
@@ -184,7 +220,12 @@ export function AnchorSecondaryDemo() {
 };`;
 
 const SecondaryCode = () => {
-  return <CodeBlock code={SecondaryCodeInner} lang="tsx" />;
+	return (
+		<CodeBlock
+			code={SecondaryCodeInner}
+			lang="tsx"
+		/>
+	);
 };
 
 //
@@ -195,13 +236,16 @@ const SecondaryCode = () => {
 //
 
 const OutlineDemo = () => {
-  return (
-    <div class="py-24 w-fit place-self-center mx-auto">
-      <Anchor variant="outline" href="#">
-        Hello!
-      </Anchor>
-    </div>
-  );
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				variant="outline"
+				href="#"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
 };
 
 const OutlineCodeInner = `import { Anchor } from "~/devano/components";
@@ -215,7 +259,12 @@ export function AnchorOutlineDemo() {
 };`;
 
 const OutlineDemoCode = () => {
-  return <CodeBlock code={OutlineCodeInner} lang="tsx" />;
+	return (
+		<CodeBlock
+			code={OutlineCodeInner}
+			lang="tsx"
+		/>
+	);
 };
 
 //
