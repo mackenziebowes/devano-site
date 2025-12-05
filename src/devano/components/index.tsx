@@ -6,6 +6,7 @@ import { Button } from "./Button";
 import { Grid } from "./Grid";
 import { Tile } from "./Tile";
 import { Page } from "./Page";
+import { PasswordInput } from "./PasswordInput";
 import { ProgressBar } from "./ProgressBar";
 import { ProgressDots } from "./ProgressDots";
 
@@ -18,6 +19,7 @@ export {
   Grid,
   Tile,
   Page,
+  PasswordInput,
   ProgressBar,
   ProgressDots,
 };

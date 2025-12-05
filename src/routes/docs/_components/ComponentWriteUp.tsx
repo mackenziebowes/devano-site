@@ -23,8 +23,8 @@ export default function WriteUp(props: WriteUpProps) {
     <DocPage>
       <Suspense fallback={null}>
         <ComponentArticle>
-          <h2>{props.name}</h2>
-          <p>{props.description}</p>
+          <h2 class="text-3xl font-semibold">{props.name}</h2>
+          <p class="leading-7">{props.description}</p>
           <div class="flex flex-col gap-0 rounded-md overflow-clip">
             <ComponentDisplayArea>{safeDemoJSX()}</ComponentDisplayArea>
             {safeDemoCodeBlock()}
@@ -57,8 +57,8 @@ const DemoVariant = (props: {
   const safeDemoCodeBlock = children(() => props.codeBlock);
   return (
     <>
-      <h4>{props.name}</h4>
-      <p>{props.description}</p>
+      <h4 class="text-2xl font-bold mt-4">{props.name}</h4>
+      <p class="leading-7">{props.description}</p>
       <div class="flex flex-col gap-0 rounded-md overflow-clip">
         <ComponentDisplayArea>{safeDemoJSX()}</ComponentDisplayArea>
         {safeDemoCodeBlock()}

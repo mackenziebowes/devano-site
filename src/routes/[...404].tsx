@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router";
-import { ButtonAnchor, Heading, Stack } from "~/devano/atoms";
+import { Heading, Stack } from "~/devano/atoms";
 import { Page, Anchor } from "~/devano/components";
 
 export default function NotFound() {

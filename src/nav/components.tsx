@@ -5,6 +5,7 @@ const routes = [
   { label: "Anchor", route: "Anchor" },
   { label: "Breadcrumb", route: "Breadcrumb" },
   { label: "Button", route: "Button" },
+  { label: "Password Input", route: "PasswordInput" },
   { label: "ProgressBar", route: "ProgressBar" },
   { label: "ProgressDots", route: "ProgressDots" },
   { label: "", route: "" },
