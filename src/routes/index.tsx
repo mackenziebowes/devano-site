@@ -20,7 +20,7 @@ import { Button, Anchor, Grid, Tile } from "~/devano/components";
 const Title = () => {
   return (
     <div class="grid w-full h-full items-end p-4">
-      <h1 class="text-4xl lg:text-6xl xl:text-8xl font-bold tracking-tight text-start h-fit">
+      <h1 class="text-2xl md:text-4xl lg:text-6xl xl:text-8xl font-bold tracking-tight text-start h-fit">
         Devano
       </h1>
     </div>
@@ -30,7 +30,21 @@ const Title = () => {
 const GetStartedCard = () => {
   return (
     <div class="grid w-full h-full place-items-center">
-      <Card class="max-w-2xl bg-card/50 border-border/50" title="Get Started">
+      <div class="flex flex-col lg:hidden p-4">
+        <p class="text-muted-foreground max-w-xl text-start">
+          Devano is a work in progress. The components are built with SolidJS,
+          TypeScript, and Tailwind CSS. This site serves as both documentation
+          and a living style guide.
+        </p>
+        <Stack direction="row" class="gap-4 mt-8">
+          <Button variant="primary">Explore Components</Button>
+          <Button variant="outline">View on GitHub</Button>
+        </Stack>
+      </div>
+      <Card
+        class="max-w-2xl bg-card/50 border-border/50 hidden lg:flex"
+        title="Get Started"
+      >
         <Stack direction="col" class="items-center text-center gap-4">
           <p class="text-muted-foreground max-w-2xl text-start">
             Devano is a work in progress. The components are built with SolidJS,
@@ -54,7 +68,7 @@ const GetStartedCard = () => {
 const Subtitle = () => {
   return (
     <div class="p-4">
-      <h2 class="text-2xl lg:text-3xl xl:text-4xl tracking-normal leading-normal text-muted-foreground font-normal text-start pt-3 ">
+      <h2 class="text-xl md:text-xl lg:text-3xl xl:text-4xl tracking-normal leading-normal text-muted-foreground font-normal text-start pt-3">
         A design system for SolidJS with idiosyncratic charm
       </h2>
     </div>
@@ -63,56 +77,64 @@ const Subtitle = () => {
 
 const Hero = () => {
   return (
-    <Grid class="w-[80dvw] max-w-7xl grid-cols-3 grid-rows-5 aspect-16/9 xl:grid-rows-10 xl:grid-cols-10 xl:aspect-16/9 border-2 border-muted">
-      <Tile
-        class="xl:hidden border-b-[1px] border-muted"
-        xd={"full"}
-        yd={1}
-        y1={1}
-      >
-        <Title />
-      </Tile>
-      <Tile
-        class="xl:hidden border-y-[1px] border-muted"
-        xd={"full"}
-        yd={1}
-        y1={2}
-      >
-        <Subtitle />
-      </Tile>
-      <Tile class="xl:hidden" xd={"full"} y2={6} y1={3}>
-        <GetStartedCard />
-      </Tile>
-      <Tile
-        x1={1}
-        x2={5}
-        y1={1}
-        y2={5}
-        class="border-b-[1px] border-muted border-r-[1px] hidden xl:block"
-      >
-        <Title />
-      </Tile>
+    <>
+      <Grid class="w-[80dvw] max-w-7xl md:grid-cols-3 md:grid-rows-5 aspect-16/9 xl:grid-rows-10 xl:grid-cols-10 xl:aspect-16/9 border-2 border-muted hidden md:grid">
+        <Tile
+          class="hidden md:grid xl:hidden border-b-[1px] border-muted overflow-clip"
+          xd={"full"}
+          yd={1}
+          y1={1}
+        >
+          <Title />
+        </Tile>
+        <Tile
+          class="hidden md:grid xl:hidden border-y-[1px] border-muted overflow-clip"
+          xd={"full"}
+          yd={1}
+          y1={2}
+        >
+          <Subtitle />
+        </Tile>
+        <Tile class="hidden md:grid xl:hidden" xd={"full"} y2={6} y1={3}>
+          <GetStartedCard />
+        </Tile>
+        <Tile
+          x1={1}
+          x2={5}
+          y1={1}
+          y2={5}
+          class="border-b-[1px] border-muted border-r-[1px] hidden xl:block"
+        >
+          <Title />
+        </Tile>
 
-      <Tile
-        x1={1}
-        x2={5}
-        y1={5}
-        y2={11}
-        class="border-t-[1px] border-r-[1px] border-muted hidden xl:block"
-      >
-        <Subtitle />
-      </Tile>
+        <Tile
+          x1={1}
+          x2={5}
+          y1={5}
+          y2={11}
+          class="border-t-[1px] border-r-[1px] border-muted hidden xl:block"
+        >
+          <Subtitle />
+        </Tile>
 
-      <Tile
-        x1={5}
-        x2={11}
-        y1={1}
-        y2={11}
-        class="border-l-[1px] border-muted p-4 hidden xl:block"
-      >
+        <Tile
+          x1={5}
+          x2={11}
+          y1={1}
+          y2={11}
+          class="border-l-[1px] border-muted p-4 hidden xl:block"
+        >
+          <GetStartedCard />
+        </Tile>
+      </Grid>
+
+      <Stack direction="col" class="items-start md:hidden">
+        <Title />
+        <Subtitle />
         <GetStartedCard />
-      </Tile>
-    </Grid>
+      </Stack>
+    </>
   );
 };
 
