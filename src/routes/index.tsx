@@ -1,12 +1,6 @@
-import { A } from "@solidjs/router";
-import { createEffect } from "solid-js";
 import { Heading, Page, Stack } from "~/devano/atoms";
-import { useAuthPortal } from "~/global/individual/Auth";
+
 export default function Home() {
-  const { togglePortal, state } = useAuthPortal();
-  createEffect(() => {
-    console.log(state.get());
-  });
   return (
     <Page>
       <Stack direction="col" class="justify-center h-[100%] flex-grow gap-12">
