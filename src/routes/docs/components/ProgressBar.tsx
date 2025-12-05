@@ -1,34 +1,73 @@
 import { Heading } from "~/devano/atoms";
 import { ProgressBar } from "~/devano/components";
-import Page from "../_components/Page";
-import ComponentDisplayArea from "../_components/ComponentDisplayArea";
 import CodeBlock from "../_components/CodeBlock";
-import ComponentArticle from "../_components/ComponentArticle";
+import WriteUp from "../_components/ComponentWriteUp";
 
-const DefaultDemo = `import { ProgressBar } from "~/devano/components";
+const DefaultDemoCodeInner = `import { ProgressBar } from "~/devano/components";
 
 export function ProgressBarDemo() {
   return (
-      <ProgressBar length={100} index={50} direction="horizontal" />
+  <div class="py-24 px-8 flex place-self-center mx-auto">
+    <ProgressBar length={100} index={50} />
+  </div>
   )
 };
 `;
 
-export default function ProgressBarPage() {
+const DefaultDemoCode = () => {
+  return <CodeBlock code={DefaultDemoCodeInner} lang="tsx" />;
+};
+
+const DefaultDemo = () => {
   return (
-    <Page>
-      <ComponentArticle>
-        <Heading as="h3">Progress Bar</Heading>
-        <p>A feedback component</p>
-        <div class="flex flex-col gap-0 rounded-md overflow-clip">
-          <ComponentDisplayArea>
-            <div class="py-24 px-8 place-self-center max-w-[80%] mx-auto">
-              <ProgressBar length={100} index={50} />
-            </div>
-          </ComponentDisplayArea>
-          <CodeBlock code={DefaultDemo} lang="tsx" />
-        </div>
-      </ComponentArticle>
-    </Page>
+    <div class="py-24 px-8 flex place-self-center mx-auto">
+      <ProgressBar length={100} index={50} />
+    </div>
+  );
+};
+
+export default function ProgressBarPage() {
+  const RecolorVariant = {
+    jsx: <RecolorDemo />,
+    codeBlock: <RecolorDemoCode />,
+    name: "Recolour",
+    description: "Use filled / empty tailwind bg rules",
+  };
+  return (
+    <WriteUp
+      name={"Button"}
+      description={"Styled Buttons components"}
+      demoJSX={<DefaultDemo />}
+      demoCodeBlock={<DefaultDemoCode />}
+      variants={[RecolorVariant]}
+    />
   );
 }
+
+const RecolorDemoCodeInner = `import { ProgressBar } from "~/devano/components";
+
+export function RecolorProgressBarDemo() {
+  return (
+  <div class="py-24 px-8 flex place-self-center mx-auto">
+    <ProgressBar length={100} index={50} />
+  </div>
+  )
+};
+`;
+
+const RecolorDemoCode = () => {
+  return <CodeBlock code={RecolorDemoCodeInner} lang="tsx" />;
+};
+
+const RecolorDemo = () => {
+  return (
+    <div class="py-24 px-8 flex place-self-center mx-auto">
+      <ProgressBar
+        length={100}
+        index={50}
+        filledBg="bg-sidebar-foreground"
+        emptyBg="bg-sidebar"
+      />
+    </div>
+  );
+};

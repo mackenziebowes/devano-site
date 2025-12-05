@@ -4,36 +4,24 @@ import { cn } from "~/devano/utils";
 interface ProgressBarProps extends JSX.HTMLAttributes<HTMLDivElement> {
   length: number;
   index: number;
+  filledBg?: string;
+  emptyBg?: string;
 }
 
 export const ProgressBar = (props: ProgressBarProps) => {
-  const [l, rest] = splitProps(props, ["length", "index", "class"]);
+  const [l, rest] = splitProps(props, [
+    "length",
+    "index",
+    "class",
+    "filledBg",
+    "emptyBg",
+  ]);
   let containerCn = cn([
     "flex align-center items-center justify-center select-none w-full overflow-clip",
     l?.class,
   ]);
-  let filledCn = cn([
-    "h-3",
-    l.class?.includes("text-")
-      ? l.class
-          .split(" ")
-          .map((cls) =>
-            cls.startsWith("text-") ? cls.replace("text-", "bg-") : cls,
-          )
-          .join(" ")
-      : "bg-green-500",
-  ]);
-  let emptyCn = cn([
-    "h-3",
-    l.class?.includes("bg-")
-      ? l.class
-          .split(" ")
-          .map((cls) =>
-            cls.startsWith("bg-") ? cls.replace("bg-", "bg-") : cls,
-          )
-          .join(" ")
-      : "bg-neutral-500",
-  ]);
+  let filledCn = cn(["h-3", l?.filledBg ?? "bg-chart-1"]);
+  let emptyCn = cn(["h-3", l?.emptyBg ?? "bg-muted"]);
   return (
     <div class={containerCn} {...rest} aria-hidden>
       <div

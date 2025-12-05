@@ -1,5 +1,11 @@
 import { codeToHtml } from "shiki";
-import { createResource, onCleanup, createEffect } from "solid-js";
+import {
+  createResource,
+  onCleanup,
+  createEffect,
+  Match,
+  Switch,
+} from "solid-js";
 import { cn } from "~/devano/utils";
 
 const CodeBlock = (props: {

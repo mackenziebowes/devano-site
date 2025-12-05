@@ -4,6 +4,8 @@ interface ProgressDotsProps extends JSX.HTMLAttributes<HTMLDivElement> {
   length: number;
   index: number;
   direction?: "horizontal" | "vertical";
+  filledBg?: string;
+  emptyBg?: string;
 }
 
 export const ProgressDots = (props: ProgressDotsProps) => {
@@ -12,6 +14,8 @@ export const ProgressDots = (props: ProgressDotsProps) => {
     "index",
     "direction",
     "class",
+    "filledBg",
+    "emptyBg",
   ]);
   let dir = l?.direction ?? "horizontal";
   let containerCn = cn([
@@ -29,28 +33,8 @@ export const ProgressDots = (props: ProgressDotsProps) => {
           .join("")
       : "",
   ]);
-  let filledCn = cn([
-    dotCn,
-    l.class?.includes("text-")
-      ? l.class
-          .split(" ")
-          .map((cls) =>
-            cls.startsWith("text-") ? cls.replace("text-", "bg-") : cls,
-          )
-          .join(" ")
-      : "bg-green-500",
-  ]);
-  let emptyCn = cn([
-    dotCn,
-    l.class?.includes("bg-")
-      ? l.class
-          .split(" ")
-          .map((cls) =>
-            cls.startsWith("bg-") ? cls.replace("bg-", "bg-") : cls,
-          )
-          .join(" ")
-      : "bg-neutral-500",
-  ]);
+  let filledCn = cn([dotCn, l?.filledBg ?? "bg-chart-1"]);
+  let emptyCn = cn([dotCn, l?.emptyBg ?? "bg-muted"]);
   const index = () => l.index;
   return (
     <div class={containerCn} {...rest} aria-hidden>
