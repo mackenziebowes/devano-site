@@ -1,0 +1,151 @@
+
+const GhostDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				variant="ghost"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
+  };
+const GhostCodeInner = `import { Anchor } from "~/devano/components";
+
+export function AnchorGhostDemo() {
+  return (
+    <div class="py-24 w-fit place-self-center mx-auto">
+      <Anchor variant="ghost">Hello!</Anchor>
+    </div>
+  )
+};`;
+
+const GhostCode = () => {
+	return (
+		<CodeBlock
+			code={GhostCodeInner}
+			lang="tsx"
+		/>
+	);
+  };
+
+const DestructiveDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				variant="destructive"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
+  };
+const DestructiveCodeInner = `import { Anchor } from "~/devano/components";
+
+export function AnchorDestructiveDemo() {
+  return (
+    <div class="py-24 w-fit place-self-center mx-auto">
+      <Anchor variant="destructive">Hello!</Anchor>
+    </div>
+  )
+};`;
+
+const DestructiveCode = () => {
+	return (
+		<CodeBlock
+			code={DestructiveCodeInner}
+			lang="tsx"
+		/>
+	);
+  };
+
+
+const SmDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				size="sm"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
+  };
+const SmCodeInner = `import { Anchor } from "~/devano/components";
+
+export function AnchorSmDemo() {
+  return (
+    <div class="py-24 w-fit place-self-center mx-auto">
+      <Anchor size="sm">Hello!</Anchor>
+    </div>
+  )
+};`;
+
+const SmCode = () => {
+	return (
+		<CodeBlock
+			code={SmCodeInner}
+			lang="tsx"
+		/>
+	);
+  };
+
+const MdDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				size="md"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
+  };
+const MdCodeInner = `import { Anchor } from "~/devano/components";
+
+export function AnchorMdDemo() {
+  return (
+    <div class="py-24 w-fit place-self-center mx-auto">
+      <Anchor size="md">Hello!</Anchor>
+    </div>
+  )
+};`;
+
+const MdCode = () => {
+	return (
+		<CodeBlock
+			code={MdCodeInner}
+			lang="tsx"
+		/>
+	);
+  };
+
+const LgDemo = () => {
+	return (
+		<div class="py-24 w-fit place-self-center mx-auto">
+			<Anchor
+				size="lg"
+			>
+				Hello!
+			</Anchor>
+		</div>
+	);
+  };
+const LgCodeInner = `import { Anchor } from "~/devano/components";
+
+export function AnchorLgDemo() {
+  return (
+    <div class="py-24 w-fit place-self-center mx-auto">
+      <Anchor size="lg">Hello!</Anchor>
+    </div>
+  )
+};`;
+
+const LgCode = () => {
+	return (
+		<CodeBlock
+			code={LgCodeInner}
+			lang="tsx"
+		/>
+	);
+  };
